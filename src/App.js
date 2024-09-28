@@ -1,30 +1,31 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { withAuthenticator, Button } from "@aws-amplify/ui-react";
+import { Authenticator } from "@aws-amplify/ui-react";
+import React from "react";
+import BookkeepingProblem from "./components/BookkeepingProblem";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
-function App({ signOut }) {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variation="primary" onClick={signOut}>
-          Sign Out
-        </Button>
-      </header>
-    </div>
+    <Authenticator>
+      {({ signOut, user }) => (
+        <main>
+          <h1>user.username: {user.username}</h1>
+          <div>
+            <h5>* user.id: {user.id}</h5>
+          </div>
+          <DndProvider backend={HTML5Backend}>
+            <div className="App">
+              <BookkeepingProblem />
+            </div>
+          </DndProvider>
+          <button onClick={signOut}>Sign out</button>
+        </main>
+      )}
+    </Authenticator>
   );
 }
 
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
