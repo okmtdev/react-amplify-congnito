@@ -1,10 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Amplify } from "aws-amplify";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+Amplify.configure({
+  Auth: {
+    Cognito: {
+      region: "ap-northeast-1",
+      userPoolClientId: "tqq48eopsoqn7ccvk4ki58gof",
+      userPoolId: "ap-northeast-1_zejllCNBB",
+      //      loginWith: {
+      //        oauth: {
+      //          domain: "react-amplify.auth.ap-northeast-1.amazoncognito.com",
+      //          scopes: ["email"],
+      //          redirectSignIn: ["http://localhost:3000/", "https://example.com/"],
+      //          redirectSignOut: ["http://localhost:3000/", "https://example.com/"],
+      //          responseType: "code",
+      //        },
+      //        username: "true",
+      //        email: "true",
+      //    },
+    },
+  },
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
