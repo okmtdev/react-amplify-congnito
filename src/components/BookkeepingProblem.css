@@ -1,0 +1,61 @@
+.bookkeeping-problem {
+  font-family: "Arial", sans-serif;
+}
+
+.problem-text,
+.categories,
+.amounts {
+  margin-bottom: 20px;
+}
+
+.item {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  cursor: grab;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.entries {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropzone {
+  min-height: 50px;
+  background-color: #e2e2e2;
+  padding: 10px;
+  border-radius: 3px;
+  width: 200px;
+  position: relative;
+}
+
+.over {
+  background-color: #c8e6c9;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.entry-category,
+.entry-amount {
+  margin-right: 10px;
+}
+
+.delete-entry {
+  margin-left: auto;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
