@@ -13,9 +13,6 @@ export default function App() {
       {({ signOut, user }) => (
         <main>
           <h1>user.username: {user.username}</h1>
-          <div>
-            <h5>* user.id: {user.id}</h5>
-          </div>
           <DndProvider backend={HTML5Backend}>
             <div className="App">
               <BookkeepingProblem />
